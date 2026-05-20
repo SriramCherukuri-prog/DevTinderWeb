@@ -9,6 +9,17 @@
 - Created BrowserRouter => Router => Route => </Body> RouteChildren
 - Created Outlet in Body Component
 - Created Footer Component
+- Installed axios
+- CORS => Installed cros in backend => added middleware to with configurations : origin,credentials:true
+- when we make API call so pass {withcredentials:true}
+- Installed and @reduxjs/toolkit + react-redux
+- configureStore => Provide the store and createSlice => add reducer to store
+- Add redux dev tools
+- Login and see if your data is coming properly in store
+- NavBar should update as soon as user logs in
+- Refactored my file structure
+
+
 
 Body
    NAVBar
