@@ -5,10 +5,12 @@ import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
+import { validate } from "../utils/validation";
 
 const Login = ()=>{
     const [emailid, setEmailid] = useState("");
     const [password, setPassword] = useState("");
+    const [error,setError] = useState("")
 
     //to add data to redux store we dispatch an action
     const dispatch = useDispatch()
@@ -17,7 +19,15 @@ const Login = ()=>{
 
     const handleLogin = async ()=>{
 
+        const validationError = validate(emailid,password)
+
+        if(validationError){
+           setError(validationError);
+           return
+        }
+
         try{
+            setError("")
        
         const res = await axios.post(BASE_URL+ "/login",{
             emailid,
@@ -29,7 +39,7 @@ const Login = ()=>{
         //navigate to /feed page
         return navigate("/")
         }catch(err){
-         
+            setError(err?.res?.data || "Invalid Credentials")
             console.error(err)
         }
     }
@@ -51,6 +61,7 @@ const Login = ()=>{
              value={password}
                onChange={(e)=>setPassword(e.target.value)}
              />
+             {error && (<p className="text-red-600 text-sm">{error}</p>)}
             <div className="card-actions pt-3 pb-3">
                <button className="btn btn-primary text-lg w-90 rounded-md" onClick={handleLogin}>Login</button>
             </div>
