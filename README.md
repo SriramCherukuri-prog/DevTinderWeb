@@ -18,6 +18,10 @@
 - Login and see if your data is coming properly in store
 - NavBar should update as soon as user logs in
 - Refactored my file structure
+- you should not be access other routes without login
+- if token is not present, redirect user to login page
+- once user logs out redirect to login page
+- 
 
 
 

@@ -9,6 +9,7 @@ import { BASE_URL } from "../utils/constants";
 const Login = ()=>{
     const [emailid, setEmailid] = useState("");
     const [password, setPassword] = useState("");
+
     //to add data to redux store we dispatch an action
     const dispatch = useDispatch()
 
@@ -17,6 +18,7 @@ const Login = ()=>{
     const handleLogin = async ()=>{
 
         try{
+       
         const res = await axios.post(BASE_URL+ "/login",{
             emailid,
             password
@@ -27,6 +29,7 @@ const Login = ()=>{
         //navigate to /feed page
         return navigate("/")
         }catch(err){
+         
             console.error(err)
         }
     }
