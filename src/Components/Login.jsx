@@ -39,7 +39,7 @@ const Login = ()=>{
         //navigate to /feed page
         return navigate("/")
         }catch(err){
-            setError(err?.res?.data || "Invalid Credentials")
+            setError(err?.response?.message || "Invalid Credentials")
             console.error(err)
         }
     }
