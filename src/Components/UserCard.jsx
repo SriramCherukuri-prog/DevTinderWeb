@@ -1,3 +1,4 @@
+import { motion } from "motion/react"
 const UserCard = ({ user }) => {
 
   const {
@@ -11,7 +12,7 @@ const UserCard = ({ user }) => {
 
   return (
 
-    <div className="flex justify-center">
+    <motion.div className="flex justify-center" drag dragElastic={0} dragConstraints={{top:-50,left:-50,right:50,botton:50}} whileDrag={{scale:1.2, rotate:10}} >
 
       <div className="relative w-90 h-[600px] rounded-3xl overflow-hidden shadow-2xl">
 
@@ -47,21 +48,21 @@ const UserCard = ({ user }) => {
         </div>
 
         {/* Action Buttons */}
-        <div className="absolute bottom-5 w-full flex justify-center gap-16">
+        <div className="absolute bottom-5 w-full flex justify-center gap-16" >
 
-          <button className="btn btn-circle btn-error text-2xl">
+          <motion.button className="btn btn-circle btn-error text-2xl" whileHover={{scale:2}} whileTap={{scale:5}}>
             ✕
-          </button>
+          </motion.button>
 
-          <button className="btn btn-circle btn-success text-2xl">
+          <motion.button className="btn btn-circle btn-success text-2xl" whileHover={{scale:2}} whileTap={{scale:5}}>
             ❤
-          </button>
+          </motion.button>
 
         </div>
 
       </div>
 
-    </div>
+    </motion.div>
   );
 };
 

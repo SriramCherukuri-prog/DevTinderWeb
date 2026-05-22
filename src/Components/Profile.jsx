@@ -1,11 +1,13 @@
-
+import { motion } from "motion/react"
 
 const Profile = ()=>{
 
     return(
-        <div>
-            <h1>Profile Page</h1>
-        </div>
+       <motion.div
+      animate={{ x: 100 }}
+    >
+       Hello welcome to ProfilePage
+    </motion.div>
     )
 
 }
