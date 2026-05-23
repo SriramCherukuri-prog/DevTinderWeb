@@ -29,6 +29,11 @@ const NavBar = ()=>{
        }
   }
 
+
+  const closeDropdown = ()=>{
+   document.activeElement.blur()
+}
+
     return(
         <>
           <div className="navbar bg-base-200 shadow-sm">
@@ -48,7 +53,7 @@ const NavBar = ()=>{
             <ul
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-200   text-white rounded-box z-1 mt-35 w-52 p-2 shadow">
-              <li>
+              <li onClick={closeDropdown()}>
                 <Link to="/profile" className="justify-between">
                   Profile
                   <span className="badge">New</span>

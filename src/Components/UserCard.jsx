@@ -12,9 +12,9 @@ const UserCard = ({ user }) => {
 
   return (
 
-    <motion.div className="flex justify-center" drag dragElastic={0} dragConstraints={{top:-50,left:-50,right:50,botton:50}} whileDrag={{scale:1.2, rotate:10}} >
+    <div className="flex justify-center relative w-90 h-[600px] top-[-70px]  rounded-3xl  overflow-hidden shadow-2xl" >
 
-      <div className="relative w-90 h-[600px] rounded-3xl overflow-hidden shadow-2xl">
+      <div>
 
         {/* Background Image */}
         <img
@@ -46,6 +46,7 @@ const UserCard = ({ user }) => {
           </p>
 
         </div>
+        
 
         {/* Action Buttons */}
         <div className="absolute bottom-5 w-full flex justify-center gap-16" >
@@ -62,7 +63,7 @@ const UserCard = ({ user }) => {
 
       </div>
 
-    </motion.div>
+    </div>
   );
 };
 
