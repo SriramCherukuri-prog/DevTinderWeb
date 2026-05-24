@@ -1,9 +1,10 @@
 import axios from "axios"
 import { BASE_URL } from "../utils/constants"
-import { useDispatch,useSelector } from "react-redux"
+import { useDispatch,useSelector, } from "react-redux"
 import {addFeed} from "../utils/feedSlice"
 import { useEffect } from "react"
 import UserCard from "./UserCard"
+import {useNavigate} from "react-router-dom"
 
 
 const Feed = ()=>{
@@ -11,6 +12,7 @@ const Feed = ()=>{
     const feed = useSelector((store)=>store.feed)
          console.log(feed)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
   
     const getFeed = async ()=>{
     try{
@@ -19,8 +21,10 @@ const Feed = ()=>{
        console.log(res.data.data)
         //to update data  to store
         dispatch(addFeed(res.data.data))
+       
     }
     catch(err){
+         return navigate("/login")
         console.error(err)
     }
 }

@@ -14,6 +14,7 @@ const Body = ()=>{
   //reading data from store
   const userData = useSelector((store)=>store.user)
 
+  //Hydrating the store with user data from backend
   const fetchUser = async ()=>{
     try{
           const res = await axios.get(BASE_URL+"/profile/view",{withCredentials:true,

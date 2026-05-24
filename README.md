@@ -21,7 +21,12 @@
 - you should not be access other routes without login
 - if token is not present, redirect user to login page
 - once user logs out redirect to login page
-- 
+- Logout feature build
+- Get the feed and add the feed in the store
+- build the user card on feed
+- edit profile feature build
+- added toast message on save profile
+- see all loggedin user connections
 
 
 

@@ -51,7 +51,7 @@ const EditProfile = ({userData})=>{
 
         return( <>
            <div className="flex justify-center">
-            <div className="flex justify-center relative left-[-100px]  top-[-80px] items-center">
+            <div className="flex justify-center relative left-[-95]  top-[-70.5px] items-center">
             <div className=" items-center card card-dash bg-base-300 w-130 top-20 ">
             <div className="card-body">
                 <h2 className="text-4xl font-bold mb-8 text-white">Edit Profile</h2>
@@ -129,7 +129,7 @@ const EditProfile = ({userData})=>{
             </div>
             </div>
             </div>
-            <div className="z-10 flex justify-center items-center relative left-[100px] top-[55px]">
+            <div className="z-10 flex justify-center items-center relative left-[70] -top-17.5 ml-28">
             <UserCard user={{firstName,lastName,photoUrl,age,gender,about}}/>
             </div>
             </div>
