@@ -67,13 +67,12 @@ const Login = ()=>{
              />
              {error && (<p className="text-red-400 text-sm mb-5 text-center">{error}</p>)}
             <div className="card-actions pt-3 pb-3">
-               <motion.button className="w-full bg-violet-600 hover:bg-violet-500 transition-all duration-300 text-white font-semibold
-                        text-lg py-4 rounded-xl shadow-lg hover:shadow-violet-500/40" whileHover={{scale:1.02,y: -2}} whileTap={{scale:0.98 }}
-                        transition={{type:"spring", stiffness:400, damping:10}}
-                        onClick={handleLogin}>Login</motion.button>
-                         <p className="text-center text-gray-500 text-sm mt-8 ">
-                        Build connections with developers 🚀
-                        </p>
+            <motion.button className="w-full bg-violet-600 hover:bg-violet-500 transition-all duration-300 text-white font-semibold
+            text-lg py-4 rounded-xl shadow-lg hover:shadow-violet-500/40" whileHover={{scale:1.02,y: -2}} whileTap={{scale:0.98 }}
+            transition={{type:"spring", stiffness:400, damping:10}}onClick={handleLogin}>Login</motion.button>
+            <p className="text-center text-gray-500 text-sm mt-8 ">
+                Build connections with developers 🚀
+            </p>
             </div>
         </div>
         </div>

@@ -17,8 +17,6 @@ const Feed = ()=>{
     const getFeed = async ()=>{
     try{
         const res = await axios.get(BASE_URL+"/user/feed",{withCredentials:true})
-   
-       console.log(res.data.data)
         //to update data  to store
         dispatch(addFeed(res.data.data))
        

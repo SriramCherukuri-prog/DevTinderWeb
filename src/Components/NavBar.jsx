@@ -8,7 +8,7 @@ import { motion } from "motion/react";
 const NavBar = ()=>{
 
   const user = useSelector((store)=>store.user);
-  console.log(user)
+
 
   const dispatch = useDispatch();
   const navigate = useNavigate()
@@ -62,6 +62,7 @@ const NavBar = ()=>{
                 </Link>
               </li>
              <li><Link to="/connections">Connections</Link></li>
+             <li><Link to="/requests">Requests</Link></li>
               <li><Link to="/login" onClick={logoutUser}>
                 Logout
               </Link></li>

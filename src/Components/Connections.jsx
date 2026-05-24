@@ -40,10 +40,10 @@ const Connections = () => {
     <h1 className="text-white text-2xl  text-center mb-1">Connections Page</h1>   
      {
       userConnections.map((connection)=>{
-        const {firstName,lastName,photoUrl,age,gender,about} = connection
+        const {_id,firstName,lastName,photoUrl,age,gender,about} = connection
         return(
           <div className=" w-full max-w-4xl mx-auto p-6 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-violet-500/40
-              hover:shadow-xl hover:shadow-violet-500/10 transition-all duration-300 flex items-center justify-between gap-6 mb-5 ">
+              hover:shadow-xl hover:shadow-violet-500/10 transition-all duration-300 flex items-center justify-between gap-6 mb-5" key={_id}>
               <img alt="photo" className="w-24  h-24 rounded-2xl object-cover border  border-white/10"  src={photoUrl}/>
               <div className="flex flex-col justify-center gap-2 flex-1">
                 <h2 className="text-2xl font-semibold text-white">{firstName+ " " + lastName}</h2>
