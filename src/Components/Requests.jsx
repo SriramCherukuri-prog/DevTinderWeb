@@ -12,6 +12,18 @@ const Requests = () => {
      const requests = useSelector((store)=>store.requests)
 
 
+  const reviewRequest = async (status,_id)=>{
+    try{
+ 
+      const res = axios.post(BASE_URL+"/request/review/" +status+ "/" + _id, {},{withCredentials:true})
+      console.log(res)
+
+    }catch(err){
+      console.error(err)
+    }
+  }
+
+
   const fetchRequests = async ()=>{
     try{
          
@@ -26,6 +38,7 @@ const Requests = () => {
 
   useEffect(()=>{
     fetchRequests()
+    reviewRequest()
   },[])
 
 if(!requests) return
@@ -54,10 +67,14 @@ if(!requests) return
                 <div className="flex gap-4">
                 <motion.button className="w-30 h-15 bg-indigo-500 hover:bg-green-500 transition-all duration-300 text-white font-semibold
                 text-lg py-4 rounded-lg shadow-lg hover:shadow-violet-500/40" whileHover={{scale:1.02,y: -2}} whileTap={{scale:0.98 }}
-                transition={{type:"spring", stiffness:400, damping:10}}>Accept</motion.button>
+                transition={{type:"spring", stiffness:400, damping:10}}
+                onClick={()=>{reviewRequest("accepted",req._id)}}>
+                Accept</motion.button>
                 <motion.button className="w-30 h-15 bg-violet-600 hover:bg-red-500  transition-all duration-300 text-white font-semibold
                 text-lg py-4 rounded-lg shadow-lg hover:shadow-violet-500/40" whileHover={{scale:1.02,y: -2}} whileTap={{scale:0.98 }}
-                transition={{type:"spring", stiffness:400, damping:10}}>Reject</motion.button>
+                transition={{type:"spring", stiffness:400, damping:10}} 
+                onClick={()=>{reviewRequest("rejected",req._id)}}>
+                Reject</motion.button>
                 <img className="w-30 h-20 relative left-40 bottom-12" src="src\Images\request_img.png" alt="request_image"/>
                 </div>
               </div>
