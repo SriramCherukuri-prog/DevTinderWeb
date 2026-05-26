@@ -37,14 +37,15 @@ const NavBar = ()=>{
 
     return(
         <>
-          <div className="navbar bg-base-200 shadow-sm">
+          <div className="navbar px-4 sm:px-6 lg:px1-10 bg-base-300 shadow-sm">
           <div className="flex-1">
-            <Link to="/" className="btn btn-ghost text-xl">👨‍💻DevTinder</Link>
-            
+            <Link to="/" className="btn btn-ghost text-2xl font-extrabold
+              bg-linear-to-r from-orange-400 via-pink-500 to-blue-500
+              bg-clip-text text-transparent">👨‍💻DevTinder</Link> 
           </div>
           <div className="flex gap-2">
           {user && (<div className="dropdown dropdown-end mx-7 flex items-center "> 
-              <p className="text-md mx-4">Welcome {user.firstName}</p>
+              <p className="text-md mx-4">{user.firstName}</p>
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
                 <img

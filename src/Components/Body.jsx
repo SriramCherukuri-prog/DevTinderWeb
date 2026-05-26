@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { useEffect } from "react";
 import axios from "axios"
+
 const Body = ()=>{
 
   const dispatch = useDispatch()
@@ -41,7 +42,10 @@ const Body = ()=>{
     return(
     <>
       <NavBar/>
-      <Outlet/>
+      <div className="min-h-screen bg-base-300 text-white overflow-x-hidden">
+         <Outlet/>
+      </div>
+    
       <Footer/>
     </>
     )

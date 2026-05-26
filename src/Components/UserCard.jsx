@@ -35,7 +35,15 @@ const UserCard = ({ user }) => {
 
   return (
 
-    <div className="flex justify-center relative w-90 h-150 -top-17.5  rounded-3xl  overflow-hidden shadow-2xl" >
+    <div className="w-full
+max-w-sm
+sm:max-w-md
+mx-auto
+rounded-3xl
+overflow-hidden
+shadow-2xl
+relative
+" >
 
       <div>
 
@@ -43,7 +51,7 @@ const UserCard = ({ user }) => {
        {photoUrl ?( <img
           src={photoUrl}
           alt="profile"
-          className="w-full h-full object-cover"
+          className="w-full h-125 object-cover"
         />):(
              <div className="w-full h-full bg-slate-700 flex items-center justify-center text-white">
               No Image

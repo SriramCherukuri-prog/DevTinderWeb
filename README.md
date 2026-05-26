@@ -33,10 +33,20 @@
 - feature signup
 
 
+# Deployment
 
-Body
-   NAVBar
-   Route =/ => feed
-   Route =/login => Login
-   Route =/conncetions => Connections
-   Route =/profile => profile
+- signup on AWS
+- Launch Instance
+- chmod 400 <secret>.pem
+- ssh -i "<secret>.pem" ubuntu@ec2-<name>.compute.amazonaws.com
+- installed node version 25.8.1
+- git clone
+- Frontend
+      - npm install -> dependencies install
+      - npm run build
+      - sudo apt update
+      - sudo apt install nginx
+      - sudo systemctl start nginx
+      - sudo systemctl enable nginx
+      - copy code from dist(build files) to /var/www/html/ 
+      - sudo scp -r dist/* /var/www/html/
