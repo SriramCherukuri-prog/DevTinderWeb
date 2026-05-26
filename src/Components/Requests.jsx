@@ -2,7 +2,7 @@ import axios from "axios";
 import { BASE_URL } from "../utils/constants";
 import {useEffect } from "react"
 import { useDispatch , useSelector} from "react-redux";
-import { addRequests } from "../utils/requestSlice";
+import { addRequests,removeRequest } from "../utils/requestSlice";
 import {motion} from "motion/react"
 
 
@@ -15,8 +15,11 @@ const Requests = () => {
   const reviewRequest = async (status,_id)=>{
     try{
  
-      const res = axios.post(BASE_URL+"/request/review/" +status+ "/" + _id, {},{withCredentials:true})
+      const res = await axios.post(BASE_URL+ "/request/review/" + status + "/" + _id,
+        {},
+        {withCredentials:true})
       console.log(res)
+      dispatch(removeRequest(_id))
 
     }catch(err){
       console.error(err)
@@ -38,15 +41,16 @@ const Requests = () => {
 
   useEffect(()=>{
     fetchRequests()
-    reviewRequest()
+
   },[])
 
-if(!requests) return
-  if(requests.length === 0){
-        return <h1 className=" flex justify-center items-center text-gray-400 text-2xl mt-32">
-            No Requests Found 🚀
-        </h1>
-  }
+if (requests.length === 0) {
+  return (
+    <h1 className="flex justify-center items-center text-gray-400 text-2xl mt-32">
+      No Requests Found 🚀
+    </h1>
+  )
+}
 
 
   return (
@@ -58,7 +62,7 @@ if(!requests) return
         const {_id,firstName,lastName,photoUrl,age,gender,about} = req.fromUserId
         return(
           <div className=" w-full max-w-3xl mx-auto p-6 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-violet-500/40
-              hover:shadow-xl hover:shadow-violet-500/10 transition-all duration-300 flex items-center justify-between gap-6 mb-5 " key={_id    }>
+              hover:shadow-xl hover:shadow-violet-500/10 transition-all duration-300 flex items-center justify-between gap-6 mb-5 " key={req._id}>
               <img alt="photo" className="w-24  h-24 rounded-2xl object-cover border  border-white/10"  src={photoUrl}/>
               <div className="flex flex-col justify-center gap-2 flex-1">
                 <h2 className="text-2xl font-semibold text-white">{firstName+ " " + lastName}</h2>

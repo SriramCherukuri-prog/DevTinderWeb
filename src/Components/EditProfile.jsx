@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios"
 import UserCard from "./UserCard";
 import { BASE_URL } from "../utils/constants";
@@ -10,12 +10,12 @@ import { motion } from "motion/react"
 
 const EditProfile = ({userData})=>{
     // const {firstName,lastName,photoUrl,age,gender,about} = userData
-    const [firstName, setFirstName] = useState(userData.firstName)
-    const [lastName, setLasttName] = useState(userData.lastName)
-    const [photoUrl,setphotoUrl] = useState(userData.photoUrl)
-    const [age, setAge] = useState(userData.age)
-    const [gender, setGender] = useState(userData.gender)
-    const [about, setAbout] = useState(userData.about)
+    const [firstName, setFirstName] = useState("")
+    const [lastName, setLastName] = useState("")
+    const [photoUrl,setphotoUrl] = useState("")
+    const [age, setAge] = useState("")
+    const [gender, setGender] = useState("")
+    const [about, setAbout] = useState("")
     const [error,setError] = useState("")
 
     console.log(userData)
@@ -43,9 +43,24 @@ const EditProfile = ({userData})=>{
                 err?.response?.data || 
                 err.message
            )
-           toast.error("Failed to save profile")
+           toast.error("Failed to save profile",{
+              position:"top-center",
+            autoClose:2000,
+           })
         }
     }
+
+    useEffect(()=>{
+        if(userData){
+        setFirstName(userData.firstName || "")
+        setLastName(userData.lastName || "")
+        setphotoUrl(userData.photoUrl || "")
+        setAge(userData.age || "")
+         setGender(userData.gender || "")
+        setAbout(userData.about || "")
+    }
+}, [userData])
+        
 
 
 

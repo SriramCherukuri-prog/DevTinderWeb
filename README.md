@@ -28,7 +28,9 @@
 - added toast message on save profile
 - see all loggedin user connections
 - see all loggedin user incoming connection requests
-- Feature: Accept/Reject Connection Request
+- Feature: Accept/Reject Connection Request 
+- Send/Ignore te user card from the feed
+- feature signup
 
 
 

@@ -32,7 +32,7 @@ const Feed = ()=>{
 
    //If feed is not there means
      if (!feed || feed.length === 0) {
-    return <h1>No Feed Found</h1>;
+    return <h1 className="flex justify-center items-center text-gray-400 text-2xl mt-32">No New Users Found on the Feed..!</h1>;
   }
 
 

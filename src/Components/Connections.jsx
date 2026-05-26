@@ -26,12 +26,14 @@ const Connections = () => {
     fetchConnections()
   },[])
 
-  if(!userConnections) return
-  if(userConnections.length === 0){
-        return <h1 className=" flex justify-center items-center text-gray-400 text-2xl mt-32">
-            No Connections Found 🚀
-        </h1>
-  }
+  
+if (userConnections.length === 0) {
+  return (
+    <h1 className="flex justify-center items-center text-gray-400 text-2xl mt-32">
+      No Connections Found 🚀
+    </h1>
+  )
+}
   
 
   return (
