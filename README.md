@@ -50,3 +50,4 @@
       - sudo systemctl enable nginx
       - copy code from dist(build files) to /var/www/html/ 
       - sudo scp -r dist/* /var/www/html/
+      - enable port 80 on aws
