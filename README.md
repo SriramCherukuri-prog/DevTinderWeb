@@ -51,3 +51,20 @@
       - copy code from dist(build files) to /var/www/html/ 
       - sudo scp -r dist/* /var/www/html/
       - enable port 80 on aws
+- Backend
+      - allowed ec2 instance public IP on mongodb server
+      - installed npm i pm2 -g
+      - pm2 start npm -- start
+      - config nginx -/etc/nginx/sites-available/default
+      - restart nginx - sudo systemctl restart nginx
+      - modify the BASE_URL in frontend project to "/api"
+
+location /api/ {
+      proxy_pass http://127.0.0.1:2000/;
+      proxy_http_version 1.1;
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_set_header Connection 'upgrade';
+      proxy_set_header Host $host;
+      proxy_cache_bypass $http_upgrade;
+}
+
